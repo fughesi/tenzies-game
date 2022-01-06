@@ -1,14 +1,26 @@
-.buttonEl {
-    border: 10px solid red;
-    padding: 10px;
-    background: #ff000030;
-    border-radius: 5px;
+#button {
+  grid-area: c;
+  padding: 1em 2em;
 
-    color: red;
-    font-weight: 700;
-    font-variant: small-caps;
+  background: rgb(255, 0, 191);
+  border-radius: 9px;
+
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.13rem;
+  letter-spacing: 0.2em;
+  box-shadow: 0px 0px 0px #000, inset -2px -2px 2px #000;
+
+  cursor: pointer;
 }
 
-.buttonEl:hover {
-    
+#button::after {
+  content: "ROLL";
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-shadow: 2px 0.3px 2px #000;
+}
+
+#button:active {
+  color: rgba(243, 243, 243, 1);
+  box-shadow: inset -4px -4px 5px #0009, inset 1.5px 1.5px 5px #111;
 }
