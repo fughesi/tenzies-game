@@ -1,0 +1,14 @@
+.buttonEl {
+    border: 10px solid red;
+    padding: 10px;
+    background: #ff000030;
+    border-radius: 5px;
+
+    color: red;
+    font-weight: 700;
+    font-variant: small-caps;
+}
+
+.buttonEl:hover {
+    
+}
