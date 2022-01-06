@@ -31,7 +31,7 @@ body {
   display: grid;
   grid-template: repeat(2, 1fr) 125px / auto;
   place-items: center;
-  grid-template-areas: 
+  grid-template-areas:
     "a"
     "b"
     "c";
@@ -50,30 +50,4 @@ body {
   );
   box-shadow: 5px 5px 5px #000, -2px -2px 5px #000, inset 0 0 10px #000;
 }
-#diceComponents {
-  grid-area: b;
-  display: grid;
-  grid-template: repeat(2, 75px) / repeat(5, 75px);
-  place-items: center;
-}
-#dice {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  height: 53.75px;
-  width: 53.75px;
-  border-radius: 4.5px;
-
-  color: #333;
-  font-weight: 700;
-  font-size: 1.5rem;
-  background: rgb(255, 255, 255);
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 1) 22%,
-    rgba(231, 238, 240, 1) 75%,
-    rgba(213, 227, 231, 1) 100%
-  );
-  box-shadow: 2px 2px 2px #333, -1px -1px 2px #333, inset 0 0 3px #000;
-}

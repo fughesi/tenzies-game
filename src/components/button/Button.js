@@ -3,7 +3,7 @@ import "./Button.css";
 
 export default function Button(props) {
   return (
-    <div data-testid="button" id="button">
+    <div id="button" onClick={props.rollDice}>
       
     </div>
   );

@@ -1,6 +1,27 @@
+#diceComponents {
+  grid-area: b;
+  display: grid;
+  grid-template: repeat(2, 75px) / repeat(5, 75px);
+  place-items: center;
+}
 #dice {
-    height: 53.75px;
-    width: 53.75px;
-    border-radius: 4.5px;
-    background-color: linen;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 53.75px;
+  width: 53.75px;
+  border-radius: 4.5px;
+
+  color: #333;
+  font-weight: 700;
+  font-size: 1.5rem;
+  user-select: none;
+  background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 22%,
+    rgba(213, 227, 231, 1) 100%
+  );
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
 }
