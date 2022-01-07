@@ -4,7 +4,7 @@ import Die from "./components/die/Die";
 import Button from "./components/button/Button";
 import { nanoid } from "nanoid";
 import "./App.css";
-import "./components/die/Die.css"
+import "./components/die/Die.css";
 
 function App() {
   // state variables
@@ -32,6 +32,7 @@ function App() {
 
   // Holds the selected die
   function holdDice(id) {
+    // allNewDice() //  Don't know if I need this????
     setDice((i) => {
       return i.map((x) => {
         console.log(x.id, id, x.isHeld);

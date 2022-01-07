@@ -5,7 +5,7 @@ export default function Die(props) {
   return (
     <>
       <div
-        className={props.isHeld===true ? "dice " : "dice selectedDice"}
+        className={props.isHeld === true ? "dice selectedDice" : "dice "}
         onClick={props.holdDice}
       >
         <h3>{props.value}</h3>
