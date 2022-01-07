@@ -1,10 +1,15 @@
 import React from "react";
-import "./Die.css"
+import "./Die.css";
 
 export default function Die(props) {
   return (
     <>
-      <div id="dice">{props.value}</div>
+      <div
+        className={props.isHeld===true ? "dice " : "dice selectedDice"}
+        onClick={props.holdDice}
+      >
+        <h3>{props.value}</h3>
+      </div>
     </>
   );
 }

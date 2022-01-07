@@ -4,6 +4,7 @@ import Die from "./components/die/Die";
 import Button from "./components/button/Button";
 import { nanoid } from "nanoid";
 import "./App.css";
+import "./components/die/Die.css"
 
 function App() {
   // state variables
@@ -28,16 +29,37 @@ function App() {
   function rollDice() {
     setDice(allNewDice());
   }
-console.log(dice)
+
+  // Holds the selected die
+  function holdDice(id) {
+    setDice((i) => {
+      return i.map((x) => {
+        console.log(x.id, id, x.isHeld);
+        return x.id === id ? { ...x, isHeld: !x.isHeld } : x;
+      });
+    });
+  }
+
   // This creates the 10 dice componenets c random nums
-  const newDice = dice.map((i) => <Die key={i.id} value={i.value} isHeld={i.isHeld} />);
+  const newDice = dice.map((i) => (
+    <Die
+      key={i.id}
+      id={i.id}
+      value={i.value}
+      isHeld={i.isHeld}
+      className="selectedDice"
+      holdDice={() => holdDice(i.id)}
+    />
+  ));
 
   return (
     <div id="page">
       <div id="mainContainer">
         <div id="mainLayout">
           <Header />
-          <div id="diceComponents">{newDice}</div>
+          <div id="diceComponents" className="diceBox">
+            {newDice}
+          </div>
           <Button rollDice={rollDice} />
         </div>
       </div>
