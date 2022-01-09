@@ -15,11 +15,7 @@ function App() {
     let numObject = {};
     let numArray = [];
     for (let i = 0; i < 10; i++) {
-      numObject = {
-        value: Math.ceil(Math.random() * 6),
-        isHeld: false,
-        id: nanoid(),
-      };
+      numObject = diceParts();
       numArray.push(numObject);
     }
     return numArray;
@@ -27,12 +23,23 @@ function App() {
 
   // roll the dice
   function rollDice() {
-    setDice(allNewDice());
+    setDice((i) => {
+      return i.map((x) => {
+        return x.isHeld ? x : diceParts();
+      });
+    });
+  }
+
+  function diceParts() {
+    return {
+      value: Math.ceil(Math.random() * 6),
+      isHeld: false,
+      id: nanoid(),
+    };
   }
 
   // Holds the selected die
   function holdDice(id) {
-    // allNewDice() //  Don't know if I need this????
     setDice((i) => {
       return i.map((x) => {
         console.log(x.id, id, x.isHeld);
