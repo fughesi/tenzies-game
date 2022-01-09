@@ -5,10 +5,24 @@ import Button from "./components/button/Button";
 import { nanoid } from "nanoid";
 import "./App.css";
 import "./components/die/Die.css";
+// import useWindowSize from 'react-use/lib/useWindowSize'
+import Confetti from 'react-confetti'
 
 function App() {
   // state variables
   const [dice, setDice] = React.useState(allNewDice);
+  const [tenzies, setTenzies] = React.useState(false);
+
+  // checks to see if player won
+  React.useEffect(() => {
+    const die = dice[0].value;
+    const x = dice.every((i) => i.isHeld === true);
+    const y = dice.every((i) => i.value === die);
+    if (x === true && y === true) {
+      setTenzies(true);
+      console.log("winner");
+    }
+  }, [dice]);
 
   // generates an array of 10 random numbers
   function allNewDice() {
@@ -30,6 +44,7 @@ function App() {
     });
   }
 
+  // Helper function to reconstruct the dice in 2 other funcs
   function diceParts() {
     return {
       value: Math.ceil(Math.random() * 6),
@@ -42,7 +57,6 @@ function App() {
   function holdDice(id) {
     setDice((i) => {
       return i.map((x) => {
-        console.log(x.id, id, x.isHeld);
         return x.id === id ? { ...x, isHeld: !x.isHeld } : x;
       });
     });
@@ -62,6 +76,7 @@ function App() {
 
   return (
     <div id="page">
+      {tenzies && <Confetti />}
       <div id="mainContainer">
         <div id="mainLayout">
           <Header />
