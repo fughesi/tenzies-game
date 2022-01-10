@@ -12,12 +12,7 @@
   box-shadow: 0px 0px 0px #000, inset -2px -2px 2px #000;
 
   cursor: pointer;
-}
-
-#button::after {
-  content: "ROLL";
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  text-shadow: 2px 0.3px 2px #000;
+  user-select: none;
 }
 
 #button:active {

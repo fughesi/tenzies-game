@@ -5,8 +5,7 @@ import Button from "./components/button/Button";
 import { nanoid } from "nanoid";
 import "./App.css";
 import "./components/die/Die.css";
-// import useWindowSize from 'react-use/lib/useWindowSize'
-import Confetti from 'react-confetti'
+import Confetti from "react-confetti";
 
 function App() {
   // state variables
@@ -74,6 +73,12 @@ function App() {
     />
   ));
 
+  // resets the game after a win
+  function resetGame() {
+    setDice(allNewDice());
+    setTenzies(false);
+  }
+
   return (
     <div id="page">
       {tenzies && <Confetti />}
@@ -83,7 +88,7 @@ function App() {
           <div id="diceComponents" className="diceBox">
             {newDice}
           </div>
-          <Button rollDice={rollDice} />
+          <Button rollDice={rollDice} resetGame={resetGame} tenzies={tenzies} />
         </div>
       </div>
     </div>
